@@ -5,5 +5,10 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:clickable="true"
-    android:apiKey="AIzaSyABdwnTbkxUfHjURIyoJ7TSpWu8sCZwAS4"
+    android:apiKey="AIzaSyAMtbAxD-LBimXRgTAV2YbISAZ_D0632RU"
+    
 />
+
+
+	<!-- office laptop -->
+    <!-- android:apiKey="AIzaSyABdwnTbkxUfHjURIyoJ7TSpWu8sCZwAS4" -->

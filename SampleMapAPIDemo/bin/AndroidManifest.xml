@@ -53,9 +53,17 @@
             android:screenOrientation="portrait" >
         </activity>
 
-        <meta-data
+<!--         	OFFICE LAPTOP --> 
+<!--         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyABdwnTbkxUfHjURIyoJ7TSpWu8sCZwAS4" />
+            android:value="AIzaSyABdwnTbkxUfHjURIyoJ7TSpWu8sCZwAS4" /> -->
+            
+<!--         	HOME DESKTOP -->
+
+  <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyAMtbAxD-LBimXRgTAV2YbISAZ_D0632RU" />
+              
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
