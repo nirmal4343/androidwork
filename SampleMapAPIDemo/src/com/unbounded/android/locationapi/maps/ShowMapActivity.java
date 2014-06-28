@@ -34,7 +34,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 @SuppressLint("NewApi")
 public class ShowMapActivity extends Activity {
 
-	// Google Map
+	// Google Map Sample
 	private GoogleMap googleMap;
 	private GPSTracker gps;
 	private PlacesList nearPlaces;
