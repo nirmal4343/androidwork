@@ -14,7 +14,7 @@
         android:paddingTop="8dp"
         android:text="@string/task_progress_msg"
         android:textAppearance="?android:attr/textAppearanceLarge" />
-
+   
     <ProgressBar
         android:id="@+id/progress_horizontal"
         style="?android:attr/progressBarStyleHorizontal"
@@ -23,7 +23,7 @@
         android:layout_gravity="center"
         android:max="213"
         android:padding="8dp" />
-
+ 
     <TextView
         android:id="@+id/percent_progress"
         android:layout_width="wrap_content"
@@ -36,10 +36,26 @@
 
     <Button
         android:id="@+id/task_button"
-        android:layout_width="wrap_content"
+        android:layout_width="164dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:padding="8dp"
         android:text="@string/start" />
+
+    <Button
+        android:id="@+id/clear_button"
+        android:layout_width="163dp"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="@string/clear" />
+
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textMultiLine" >
+
+        <requestFocus />
+    </EditText>
 
 </LinearLayout>
