@@ -28,7 +28,7 @@ public class ScrollImageFragment extends Fragment {
 	@SuppressWarnings("unchecked")
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
-		View rootView = inflater.inflate(R.layout.fragment_main_dummy,container, false);
+		View rootView = inflater.inflate(R.layout.fragment_main_image,container, false);
 		ImageView cardImage = (ImageView) rootView.findViewById(R.id.imageView1);
 		selectedIndex = Integer.toString(getArguments().getInt(ARG_SECTION_NUMBER));
 		if(savedInstanceState != null){
