@@ -20,7 +20,6 @@ public class HorizontalScrollImageAdapter extends FragmentPagerAdapter {
 		map.put("0", String.valueOf(R.drawable.capture_2));
 		map.put("1", String.valueOf(R.drawable.capture_3));
 		map.put("2", String.valueOf(R.drawable.capture_4));
-		map.put("3", String.valueOf(R.drawable.ic_launcher));
 	}
 
 	public HorizontalScrollImageAdapter(FragmentManager fm) {
