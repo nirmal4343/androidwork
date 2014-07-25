@@ -8,6 +8,29 @@ Desktop.ini
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
 
+
+# Built application files
+*.apk
+*.ap_
+
+# Files for the Dalvik VM
+*.dex
+
+# Java class files
+*.class
+/bin/classes
+
+# Generated files
+bin/
+gen/
+
+# Gradle files
+.gradle/
+build/
+
+# Local configuration file (sdk path, etc)
+local.properties
+
 # Windows Installer files
 *.cab
 *.msi
