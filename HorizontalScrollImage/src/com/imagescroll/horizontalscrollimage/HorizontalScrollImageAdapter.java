@@ -31,7 +31,7 @@ public class HorizontalScrollImageAdapter extends FragmentPagerAdapter {
 		// getItem is called to instantiate the fragment for the given page.
 		// Return a DummySectionFragment (defined as a static inner class
 		// below) with the page number as its lone argument.
-		Fragment fragment = new ScrollImageFragment(map);
+		Fragment fragment = ScrollImageFragment.newInstance(map);
 		Bundle args = new Bundle();
 		args.putInt(ScrollImageFragment.ARG_SECTION_NUMBER, position);
 		fragment.setArguments(args);
