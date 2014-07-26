@@ -25,7 +25,8 @@
             android:textStyle="bold"
             android:typeface="serif" />
     </FrameLayout>
-
+    
+    <!-- Drawer menu from left -->
     <ListView
         android:id="@+id/left_drawer"
         android:layout_width="240dp"
@@ -35,5 +36,17 @@
         android:choiceMode="singleChoice"
         android:divider="@android:color/transparent"
         android:dividerHeight="0dp" />
-
+	
+    <!-- Drawer menu from right -->
+    <ListView
+        android:id="@+id/right_drawer"
+        android:layout_width="240dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:background="#535353"
+        android:choiceMode="singleChoice"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="0dp" />
+    
+    
 </android.support.v4.widget.DrawerLayout>

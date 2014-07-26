@@ -8,9 +8,12 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.widget.DrawerLayout;
 import android.text.Html;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -43,6 +46,7 @@ public class MainActivity extends Activity {
 	// ListItems data
 	ArrayList<HashMap<String, String>> placesListItems = new ArrayList<HashMap<String, String>>();
 
+	DrawerLayout mDrawerLayout;
 	// KEY Strings
 	public static String KEY_REFERENCE = "reference"; // id of the place
 	public static String KEY_NAME = "name"; // name of the place
@@ -53,7 +57,7 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		
+		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 		cd = new ConnectionDetector(getApplicationContext());
 
 		// Check if Internet present
@@ -176,6 +180,18 @@ public class MainActivity extends Activity {
 			startActivity(i);
 		}
 
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		if (item != null && item.getItemId() == android.R.id.home) {
+	        if (mDrawerLayout.isDrawerOpen(Gravity.RIGHT)) {
+	            mDrawerLayout.closeDrawer(Gravity.RIGHT);
+	        } else {
+	            mDrawerLayout.openDrawer(Gravity.RIGHT);
+	        }
+	    }
+		return super.onOptionsItemSelected(item);
 	}
 
 	@Override

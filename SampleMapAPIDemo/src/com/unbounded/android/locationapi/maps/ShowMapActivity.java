@@ -17,14 +17,19 @@ import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.text.Html;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.GoogleMap.InfoWindowAdapter;
+import com.google.android.gms.maps.GoogleMap.OnInfoWindowClickListener;
+import com.google.android.gms.maps.GoogleMap.OnMarkerClickListener;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
@@ -55,8 +60,7 @@ public class ShowMapActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.show_map_activity);
-		
-		
+
 		gps = new GPSTracker(this);
 		addressView = (TextView) findViewById(R.id.address);
 		Intent i = getIntent();
@@ -67,10 +71,10 @@ public class ShowMapActivity extends Activity {
 		nearPlaces = (PlacesList) i.getSerializableExtra("near_places");
 
 		dataList = new ArrayList<DrawerItem>();
-		//mTitle = mDrawerTitle = getTitle();
+		// mTitle = mDrawerTitle = getTitle();
 		getActionBar().setTitle("");
 		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-		mDrawerList = (ListView) findViewById(R.id.left_drawer);
+		mDrawerList = (ListView) findViewById(R.id.right_drawer);
 
 		mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow,
 				GravityCompat.START);
@@ -90,34 +94,32 @@ public class ShowMapActivity extends Activity {
 
 		mDrawerList.setAdapter(adapter);
 		mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
-		
-		
-		  getActionBar().setDisplayHomeAsUpEnabled(true);
-		  getActionBar().setHomeButtonEnabled(true);
-		   
-		  mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
-		              R.drawable.ic_drawer, R.string.drawer_open,
-		              R.string.drawer_close) {
-		        public void onDrawerClosed(View view) {
-		            //  getActionBar().setTitle(mTitle);
-		              invalidateOptionsMenu(); // creates call to
-		                                                        // onPrepareOptionsMenu()
-		        }
-		   
-		        public void onDrawerOpened(View drawerView) {
-		         //     getActionBar().setTitle(mDrawerTitle);
-		              invalidateOptionsMenu(); // creates call to
-		                                                        // onPrepareOptionsMenu()
-		        }
-		  };
-		   
-		  mDrawerLayout.setDrawerListener(mDrawerToggle);
-		   
-		  if (savedInstanceState == null) {
-		        SelectItem(0);
-		  }
-		
-		
+
+		getActionBar().setDisplayHomeAsUpEnabled(true);
+		getActionBar().setHomeButtonEnabled(true);
+
+		mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
+				R.drawable.ic_drawer, R.string.drawer_open,
+				R.string.drawer_close) {
+			public void onDrawerClosed(View view) {
+				// getActionBar().setTitle(mTitle);
+				invalidateOptionsMenu(); // creates call to
+											// onPrepareOptionsMenu()
+			}
+
+			public void onDrawerOpened(View drawerView) {
+				// getActionBar().setTitle(mDrawerTitle);
+				invalidateOptionsMenu(); // creates call to
+											// onPrepareOptionsMenu()
+			}
+		};
+
+		mDrawerLayout.setDrawerListener(mDrawerToggle);
+
+		if (savedInstanceState == null) {
+			SelectItem(0);
+		}
+
 		try {
 			// Loading map
 			initilizeMap();
@@ -131,7 +133,7 @@ public class ShowMapActivity extends Activity {
 	public void SelectItem(int possition) {
 
 		mDrawerList.setItemChecked(possition, true);
-		//setTitle(dataList.get(possition).getItemName());
+		// setTitle(dataList.get(possition).getItemName());
 		mDrawerLayout.closeDrawer(mDrawerList);
 
 	}
@@ -160,6 +162,51 @@ public class ShowMapActivity extends Activity {
 			markerOptions.title("20 MIN to Pickups");
 
 			Marker marker = googleMap.addMarker(markerOptions);
+
+			// Setting a custom info window adapter for the google map
+			googleMap.setInfoWindowAdapter(new InfoWindowAdapter() {
+
+				// Use default InfoWindow frame
+				@Override
+				public View getInfoWindow(Marker arg0) {
+					return null;
+				}
+
+				// Defines the contents of the InfoWindow
+				@Override
+				public View getInfoContents(Marker arg0) {
+
+					// Getting view from the layout file info_window_layout
+					View v = getLayoutInflater().inflate(
+							R.layout.info_window_layout, null);
+
+					// Getting the position from the marker
+					LatLng latLng = arg0.getPosition();
+
+					// Getting reference to the TextView to set longitude
+					TextView tvLng = (TextView) v
+							.findViewById(R.id.distance_info);
+
+					// Returning the view containing InfoWindow contents
+					return v;
+
+				}
+			});
+
+			// Defining Listeners to the info window
+			googleMap
+					.setOnInfoWindowClickListener(new OnInfoWindowClickListener() {
+
+						@Override
+						public void onInfoWindowClick(Marker arg0) {
+							// TODO Auto-generated method stub
+							Toast.makeText(ShowMapActivity.this,
+									"You Clicked...", Toast.LENGTH_LONG).show();// display
+																				// toast
+							mDrawerLayout.openDrawer(Gravity.END);
+						}
+
+					});
 
 			marker.showInfoWindow();
 
@@ -206,7 +253,7 @@ public class ShowMapActivity extends Activity {
 	@Override
 	public void setTitle(CharSequence title) {
 		mTitle = title;
-	//	getActionBar().setTitle(mTitle);
+		// getActionBar().setTitle(mTitle);
 	}
 
 	@Override
