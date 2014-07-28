@@ -8,6 +8,8 @@
         android:minSdkVersion="18"
         android:targetSdkVersion="18" />
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -22,6 +24,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <meta-data android:name="com.crashlytics.ApiKey" android:value="73e73f67a96effe2c6e91055b0919486cb57e65d"/>
     </application>
 
 </manifest>

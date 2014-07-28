@@ -1,5 +1,6 @@
 package com.dialog.dialogfragment;
 
+import com.crashlytics.android.Crashlytics;
 import com.dialog.dialogfragment.ConfirmationDialogFragment.ConfirmationDialogFragmentListener;
 
 import android.app.Activity;
@@ -11,10 +12,11 @@ import android.widget.Toast;
 
 public class MainActivity extends Activity implements
 		ConfirmationDialogFragmentListener {
-
+	ConfirmationDialogFragment confirmationDialog;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		Crashlytics.start(this);
 		setContentView(R.layout.activity_main);
 	}
 
@@ -26,8 +28,7 @@ public class MainActivity extends Activity implements
 	}
 
 	public void showDialog(View v) {
-		ConfirmationDialogFragment confirmationDialog = ConfirmationDialogFragment
-				.newInstance(R.string.dialog_format_title);
+		//confirmationDialog = ConfirmationDialogFragment.newInstance(R.string.dialog_format_title);
 		confirmationDialog.setConfirmationDialogFragmentListener(this);
 		confirmationDialog.show(getFragmentManager(), null);
 	}
