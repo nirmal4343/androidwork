@@ -21,13 +21,13 @@ public class MessageInboxActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.message_activity);
-		
+
 		list = (ListView) findViewById(R.id.list);
 
 		List<Message> messageList = createDemoMessage();
 
 		adapter = new MessageAdapter(this, messageList);
-		
+
 		list.setAdapter(adapter);
 
 		list.setOnItemClickListener(new OnItemClickListener() {
@@ -48,9 +48,13 @@ public class MessageInboxActivity extends Activity {
 		int count = 0;
 		List<Message> msgList = new ArrayList<>();
 		while (count < 7) {
+			if (count == 7 || count == 6) {
+				msgList.add(new Message("1", "info@incomm.com", true,
+						"Payment Status", MESSAGE_TEMPLET));
 
-			msgList.add(new Message("1", "info@incomm.com", false,
-					"Payment Status", MESSAGE_TEMPLET));
+			}else{
+				msgList.add(new Message("1", "info@incomm.com", false,"Payment Status", MESSAGE_TEMPLET));
+			}
 			count++;
 		}
 
