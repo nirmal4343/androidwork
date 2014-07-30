@@ -46,7 +46,7 @@ public class MessageInboxActivity extends Activity {
 
 	private List<Message> createDemoMessage() {
 		int count = 0;
-		List<Message> msgList = new ArrayList<>();
+		List<Message> msgList = new ArrayList<Message>();
 		while (count < 7) {
 			if (count == 7 || count == 6) {
 				msgList.add(new Message("1", "info@incomm.com", true,
