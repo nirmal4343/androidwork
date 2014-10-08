@@ -3,31 +3,25 @@ package com.local.courier.pkg.ui;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import android.app.Activity;
+import android.app.ProgressDialog;
+import android.content.Intent;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.support.v4.app.NavUtils;
+import android.text.Html;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ListView;
 import com.unbounded.android.locationapi.maps.AlertDialogManager;
 import com.unbounded.android.locationapi.maps.ConnectionDetector;
 import com.unbounded.android.locationapi.maps.GPSTracker;
 import com.unbounded.android.locationapi.maps.GooglePlaces;
 import com.unbounded.android.locationapi.maps.PlacesList;
 import com.unbounded.android.locationapi.maps.R;
-import com.unbounded.android.locationapi.maps.R.id;
-import com.unbounded.android.locationapi.maps.R.layout;
-import com.unbounded.android.locationapi.maps.R.menu;
-
-import android.app.Activity;
-import android.app.ProgressDialog;
-import android.content.Intent;
-import android.os.AsyncTask;
-import android.os.Bundle;
-import android.support.v4.widget.DrawerLayout;
-import android.text.Html;
-import android.util.Log;
-import android.view.Gravity;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ListView;
 
 public class MainActivity extends Activity {
 
@@ -45,7 +39,7 @@ public class MainActivity extends Activity {
 	GPSTracker gps;
 
 	// Button
-	Button btnShowOnMap;
+	Button btnNext;
 
 	// Progress dialog
 	ProgressDialog pDialog;
@@ -56,7 +50,7 @@ public class MainActivity extends Activity {
 	// ListItems data
 	ArrayList<HashMap<String, String>> placesListItems = new ArrayList<HashMap<String, String>>();
 
-	DrawerLayout mDrawerLayout;
+
 	// KEY Strings
 	public static String KEY_REFERENCE = "reference"; // id of the place
 	public static String KEY_NAME = "name"; // name of the place
@@ -66,10 +60,8 @@ public class MainActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-
-		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 		cd = new ConnectionDetector(getApplicationContext());
-
+		 getActionBar().setDisplayHomeAsUpEnabled(true);
 		// Check if Internet present
 		isInternetPresent = cd.isConnectingToInternet();
 		if (!isInternetPresent) {
@@ -98,39 +90,30 @@ public class MainActivity extends Activity {
 		}
 
 		// button show on map
-		btnShowOnMap = (Button) findViewById(R.id.button1);
+		btnNext = (Button) findViewById(R.id.next);
 
 		/** Button click event for shown on map */
-		btnShowOnMap.setOnClickListener(new View.OnClickListener() {
+		btnNext.setOnClickListener(new View.OnClickListener() {
 
 			@Override
 			public void onClick(View arg0) {
-				/*
-				 * Intent i = new
-				 * Intent(getApplicationContext(),ShowMapActivity.class); //
-				 * Sending user current geo location i.putExtra("user_latitude",
-				 * Double.toString(gps.getLatitude()));
-				 * i.putExtra("user_longitude",
-				 * Double.toString(gps.getLongitude()));
-				 * 
-				 * // passing near places to map activity
-				 * i.putExtra("near_places", nearPlaces); // staring activity
-				 * startActivity(i);
-				 */
-				new LoadPlaces().execute();
+
+				Intent paymentInt = new Intent(MainActivity.this, PaymentActivity.class);
+				startActivity(paymentInt);
+				// new LoadPlaces().execute();
 			}
 		});
 
 	}
-
-	/**
+/*
+	*//**
 	 * Background Async Task to Load Google places
-	 * */
+	 * *//*
 	class LoadPlaces extends AsyncTask<String, String, String> {
 
-		/**
+		*//**
 		 * Before starting background thread Show Progress Dialog
-		 * */
+		 * *//*
 		@Override
 		protected void onPreExecute() {
 			super.onPreExecute();
@@ -142,9 +125,9 @@ public class MainActivity extends Activity {
 			pDialog.show();
 		}
 
-		/**
+		*//**
 		 * getting Places JSON
-		 * */
+		 * *//*
 		protected String doInBackground(String... args) {
 			// creating Places class object
 			googlePlaces = new GooglePlaces();
@@ -167,11 +150,11 @@ public class MainActivity extends Activity {
 			return null;
 		}
 
-		/**
+		*//**
 		 * After completing background task Dismiss the progress dialog and show
 		 * the data in UI Always use runOnUiThread(new Runnable()) to update UI
 		 * from background thread, otherwise you will get error
-		 * **/
+		 * **//*
 
 		protected void onPostExecute(String file_url) {
 			// dismiss the dialog after getting all products
@@ -191,18 +174,17 @@ public class MainActivity extends Activity {
 		}
 
 	}
-	
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		if (item != null && item.getItemId() == android.R.id.home) {
-	        if (mDrawerLayout.isDrawerOpen(Gravity.RIGHT)) {
-	            mDrawerLayout.closeDrawer(Gravity.RIGHT);
-	        } else {
-	            mDrawerLayout.openDrawer(Gravity.RIGHT);
-	        }
-	    }
-		return super.onOptionsItemSelected(item);
-	}
+*/	
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+        case android.R.id.home:
+            NavUtils.navigateUpFromSameTask(this);
+            return true;
+        default:
+            return super.onOptionsItemSelected(item);
+        }
+    }
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

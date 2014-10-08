@@ -20,6 +20,7 @@
             android:layout_weight="1"
             android:text="@string/sign_in"
             android:textColor="#000000"
+            android:onClick="proceedLogin"
             android:textSize="20sp" />
 
         <Button
@@ -32,6 +33,7 @@
             android:layout_weight="1"
             android:text="@string/register"
             android:textColor="#000000"
+            android:onClick="proceedRegistration"
             android:textSize="20sp" />
     </LinearLayout>
 

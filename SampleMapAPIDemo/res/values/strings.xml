@@ -5,14 +5,25 @@
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
     <string name="sign_in">SIGN IN</string>
+    <string name="sign_in_google">SIGN IN WITH GOOGLE</string>
     <string name="f_Name">First</string>
+    <string name="month">MM</string>
+    <string name="year">YY</string>
+    <string name="cvv">CVV</string>
     <string name="l_name">Last</string>
+    <string name="credit_card">Credit Card #</string>
     <string name="email">Email</string>
+    <string name="password">Password</string>    
     <string name="phone">Phone</string>
-    <string name="register">REGISTER</string>
+    <string name="zip">ZIP</string>
+    <string name="register">Register</string>
+    <string name="next">NEXT</string>
+    <string name="register_NEW">REGISTER</string>
     <string name="no_address">No Address Found</string>
-    
-<string name="drawer_open">Open drawer</string>
-<string name="drawer_close">Close drawer</string>
+    <string name="drawer_open">Open drawer</string>
+    <string name="drawer_close">Close drawer</string>
+    <string name="login_option">------------------------- OR --------------------------</string>    
+    <string name="term_condition"><a href="http://stackoverflow.com/questions/9852184/android-textview-hyperlink?rq=1">TERMS OF SERVICE &amp; PRIVECY POLICY</a></string>
+    <string name="forgot_password"><a href="http://stackoverflow.com/questions/9852184/android-textview-hyperlink?rq=1">FORGOT PASSWORD</a></string>
 
 </resources>

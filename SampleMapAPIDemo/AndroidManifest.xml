@@ -23,7 +23,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <!-- Required to show current location -->
-    
+
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
@@ -34,9 +34,9 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name="com.local.courier.pkg.ui.HomeActivity"
+            android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Black.NoTitleBar"
-            android:label="@string/app_name" >
+            android:theme="@android:style/Theme.Black.NoTitleBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -48,8 +48,32 @@
 
         <activity
             android:name="com.unbounded.android.locationapi.maps.SinglePlaceActivity"
-            android:screenOrientation="portrait"
-            android:label="Place Details" >
+            android:label="Place Details"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.local.courier.pkg.ui.MainActivity"
+            android:label="Register"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.local.courier.pkg.ui.HomeActivity" />
+        </activity>
+        <activity
+            android:name="com.local.courier.pkg.ui.PaymentActivity"
+            android:label="Payments"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.local.courier.pkg.ui.MainActivity" />
+        </activity>
+        <activity
+            android:name="com.local.courier.pkg.ui.LoginActivity"
+            android:label="@string/sign_in"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.local.courier.pkg.ui.HomeActivity" />
         </activity>
         <activity
             android:name="com.local.courier.pkg.ui.ShowMapActivity"
@@ -57,17 +81,19 @@
             android:screenOrientation="portrait" >
         </activity>
 
-<!--         	OFFICE LAPTOP --> 
-<!--         <meta-data
+        <!-- OFFICE LAPTOP -->
+        <!--
+             <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyABdwnTbkxUfHjURIyoJ7TSpWu8sCZwAS4" /> -->
-            
-<!--         	HOME DESKTOP -->
+            android:value="AIzaSyABdwnTbkxUfHjURIyoJ7TSpWu8sCZwAS4" />
+        -->
 
-  <meta-data
+
+        <!-- HOME DESKTOP -->
+
+        <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyAMtbAxD-LBimXRgTAV2YbISAZ_D0632RU" />
-              
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />

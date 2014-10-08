@@ -6,62 +6,62 @@
     android:background="@drawable/gradient_background"
     android:orientation="vertical" >
 
+    <EditText
+        android:id="@+id/credit_card"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:hint="@string/credit_card"
+        android:inputType="textEmailAddress"
+        android:textColor="#FFFFFF" />
+
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
 
         <EditText
-            android:id="@+id/fName"
+            android:id="@+id/month"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:hint="@string/f_Name"
+            android:hint="@string/month"
             android:inputType="textPersonName"
             android:textColor="#FFFFFF" >
         </EditText>
 
         <EditText
-            android:id="@+id/lName"
+            android:id="@+id/year"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:ems="10"
-            android:hint="@string/l_name"
+            android:hint="@string/year"
             android:inputType="textPersonName"
+            android:textColor="#FFFFFF" />
+
+        <EditText
+            android:id="@+id/cvv_number"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="2"
+            android:ems="10"
+            android:hint="@string/cvv"
+            android:inputType="number"
             android:textColor="#FFFFFF" />
     </LinearLayout>
 
     <EditText
-        android:id="@+id/email"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:ems="10"
-        android:hint="@string/email"
-        android:inputType="textEmailAddress"
-        android:textColor="#FFFFFF" />
-
-    <EditText
-        android:id="@+id/phone_no"
+        android:id="@+id/zip_code"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:ems="10"
-        android:hint="@string/phone"
+        android:hint="@string/zip"
         android:inputType="phone"
-        android:textColor="#FFFFFF" />
-
-    <EditText
-        android:id="@+id/password"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:ems="10"
-        android:hint="@string/password"
-        android:inputType="textPassword"
         android:textColor="#FFFFFF" />
 
     <Button
@@ -69,9 +69,19 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:text="@string/next"
+        android:text="@string/register_NEW"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/term_condition"
+        android:textSize="17sp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:textColor="#FFFFFF" />
 
 </LinearLayout>
