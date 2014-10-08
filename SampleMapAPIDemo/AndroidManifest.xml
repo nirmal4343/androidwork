@@ -33,11 +33,13 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.unbounded.android.locationapi.maps.MainActivity"
+            android:name="com.local.courier.pkg.ui.HomeActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Black.NoTitleBar"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-`
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -46,10 +48,11 @@
 
         <activity
             android:name="com.unbounded.android.locationapi.maps.SinglePlaceActivity"
+            android:screenOrientation="portrait"
             android:label="Place Details" >
         </activity>
         <activity
-            android:name=".ShowMapActivity"
+            android:name="com.local.courier.pkg.ui.ShowMapActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait" >
         </activity>

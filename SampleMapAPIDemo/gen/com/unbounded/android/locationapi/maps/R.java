@@ -226,14 +226,16 @@ containing a value of this type.
         public static final int ic_unwatched=0x7f02002e;
         public static final int img_btn_playlist=0x7f02002f;
         public static final int img_btn_playlist_pressed=0x7f020030;
-        public static final int marker_info_background=0x7f020031;
-        public static final int navigate_right=0x7f020032;
-        public static final int share=0x7f020033;
-        public static final int sign_in=0x7f020034;
-        public static final int success=0x7f020035;
-        public static final int user1=0x7f020036;
-        public static final int user2=0x7f020037;
-        public static final int white_normal=0x7f020038;
+        public static final int logo_new=0x7f020031;
+        public static final int marker_info_background=0x7f020032;
+        public static final int navigate_right=0x7f020033;
+        public static final int new_logo=0x7f020034;
+        public static final int share=0x7f020035;
+        public static final int sign_in=0x7f020036;
+        public static final int success=0x7f020037;
+        public static final int user1=0x7f020038;
+        public static final int user2=0x7f020039;
+        public static final int white_normal=0x7f02003a;
     }
     public static final class id {
         public static final int action_settings=0x7f05001d;
@@ -274,12 +276,13 @@ containing a value of this type.
         public static final int activity_main=0x7f030000;
         public static final int custom_actionbar=0x7f030001;
         public static final int custom_drawer_item=0x7f030002;
-        public static final int info_window_layout=0x7f030003;
-        public static final int list_item=0x7f030004;
-        public static final int map_places=0x7f030005;
-        public static final int map_popup=0x7f030006;
-        public static final int show_map_activity=0x7f030007;
-        public static final int single_place=0x7f030008;
+        public static final int home_activity=0x7f030003;
+        public static final int info_window_layout=0x7f030004;
+        public static final int list_item=0x7f030005;
+        public static final int map_places=0x7f030006;
+        public static final int map_popup=0x7f030007;
+        public static final int show_map_activity=0x7f030008;
+        public static final int single_place=0x7f030009;
     }
     public static final class menu {
         public static final int main=0x7f0a0000;
