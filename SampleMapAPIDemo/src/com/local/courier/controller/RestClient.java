@@ -115,8 +115,7 @@ public class RestClient {
 		case POST:
 		{
 			HttpPost request = new HttpPost(url);
-			/*JSONObject json = new JSONObject();
-			json.put("CityName", "Noida");*/
+
            
             StringEntity se = new StringEntity( json.toString());  
             se.setContentType(new BasicHeader(HTTP.CONTENT_TYPE, "application/json"));

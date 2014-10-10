@@ -12,6 +12,10 @@ public class RegisterVO implements Parcelable{
 	private String phoneNo;
 	private String password;
 	
+	private double longitude;
+	private double latitude;
+
+
 	public RegisterVO(String firstName, String lastName, String emailId, String phoneNo, String password){
         this.firstName = firstName;
         this.lastName = lastName;
@@ -48,6 +52,23 @@ public class RegisterVO implements Parcelable{
 
 	public String getPassword() {
 		return password;
+	}
+
+
+	public double getLongitude() {
+		return longitude;
+	}
+
+	public void setLongitude(double longitude) {
+		this.longitude = longitude;
+	}
+
+	public double getLatitude() {
+		return latitude;
+	}
+
+	public void setLatitude(double latitude) {
+		this.latitude = latitude;
 	}
 
 

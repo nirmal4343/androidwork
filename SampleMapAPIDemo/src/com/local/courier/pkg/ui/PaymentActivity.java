@@ -15,8 +15,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 
+import com.local.courier.controller.RestCall;
+import com.local.courier.model.CreditCardVO;
 import com.local.courier.model.RegisterVO;
 import com.unbounded.android.locationapi.maps.AlertDialogManager;
 import com.unbounded.android.locationapi.maps.ConnectionDetector;
@@ -29,7 +32,6 @@ public class PaymentActivity extends Activity {
 
 	// Button
 	Button btnRegister;
-
 	// flag for Internet connection status
 	Boolean isInternetPresent = false;
 	// Connection detector class
@@ -42,21 +44,25 @@ public class PaymentActivity extends Activity {
 	PlacesList nearPlaces;
 	// GPS Location
 	GPSTracker gps;
-
 	// Button
 	Button btnNext;
-
 	// Progress dialog
 	ProgressDialog pDialog;
-
 	// Places Listview
 	ListView lv;
-
 	// ListItems data
 	ArrayList<HashMap<String, String>> placesListItems = new ArrayList<HashMap<String, String>>();
 
 	RegisterVO mRegisterVo;
 
+	CreditCardVO mCreditCardVo;
+	
+	private EditText creditCard;
+	private EditText month;
+	private EditText year;
+	private EditText cvv;
+	private EditText zipCode;
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -65,6 +71,12 @@ public class PaymentActivity extends Activity {
 		
 		mRegisterVo = (RegisterVO)getIntent().getParcelableExtra(RegisterActivity.OBJECT_KEY);
 		 
+		creditCard = (EditText) findViewById(R.id.credit_card);
+		month = (EditText) findViewById(R.id.month);
+		year = (EditText) findViewById(R.id.year);
+		cvv = (EditText) findViewById(R.id.cvv_number);
+		zipCode = (EditText) findViewById(R.id.zip_code);
+		
 		 
 		// Check if Internet present
 		cd = new ConnectionDetector(getApplicationContext());
@@ -85,11 +97,13 @@ public class PaymentActivity extends Activity {
 		if (gps.canGetLocation()) {
 			Log.d("Your Location", "latitude:" + gps.getLatitude()
 					+ ", longitude: " + gps.getLongitude());
+			
+			mRegisterVo.setLongitude(gps.getLongitude());
+			mRegisterVo.setLatitude(gps.getLongitude());
+			
 		} else {
 			// Can't get user's current location
-			alert.showAlertDialog(PaymentActivity.this, "GPS Status",
-					"Couldn't get location information. Please enable GPS",
-					false);
+			alert.showAlertDialog(PaymentActivity.this, "GPS Status","Couldn't get location information. Please enable GPS",false);
 			// stop executing code by return
 			return;
 		}
@@ -142,6 +156,7 @@ public class PaymentActivity extends Activity {
 			pDialog.setCancelable(false);
 			pDialog.show();
 			
+			mCreditCardVo = new CreditCardVO(creditCard.getText().toString(), month.getText().toString(), year.getText().toString(), cvv.getText().toString(), zipCode.getText().toString());
 
 		}
 
@@ -151,6 +166,7 @@ public class PaymentActivity extends Activity {
 
 			try {
 
+				RestCall.getInstance().getRegistration(mRegisterVo,mCreditCardVo);
 				String types = "cafe|restaurant"; // Listing places only cafes,
 				double radius = 1000; // 1000 meters
 				nearPlaces = googlePlaces.search(gps.getLatitude(),gps.getLongitude(), radius, types);
