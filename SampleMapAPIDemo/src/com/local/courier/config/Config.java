@@ -18,7 +18,7 @@ package com.local.courier.config;
 public class Config {
   
 
-	public static final String SERVER_URL = "http://10.4.3.218:8080/gcm-demo";
+	public static final String SERVER_URL = "http://mars-marstech.rhcloud.com/api/";
 
 
 }
