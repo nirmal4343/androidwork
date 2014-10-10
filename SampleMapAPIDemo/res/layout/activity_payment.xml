@@ -65,7 +65,7 @@
         android:textColor="#FFFFFF" />
 
     <Button
-        android:id="@+id/next"
+        android:id="@+id/registerBtn"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
