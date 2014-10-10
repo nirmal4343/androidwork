@@ -20,6 +20,7 @@
     <string name="next">NEXT</string>
     <string name="register_NEW">REGISTER</string>
     <string name="no_address">No Address Found</string>
+    <string name="request_pickup">Request Pickup</string>
     <string name="drawer_open">Open drawer</string>
     <string name="drawer_close">Close drawer</string>
     <string name="login_option">------------------------- OR --------------------------</string>    

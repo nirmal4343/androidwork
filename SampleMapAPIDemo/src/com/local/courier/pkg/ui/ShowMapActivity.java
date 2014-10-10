@@ -105,7 +105,7 @@ public class ShowMapActivity extends Activity {
 		user_longitude = i.getStringExtra("user_longitude");
 
 		// Nearplaces list
-		nearPlaces = (PlacesList) i.getSerializableExtra("near_places");
+		// nearPlaces = (PlacesList) i.getSerializableExtra("near_places");
 
 		dataList = new ArrayList<DrawerItem>();
 		// mTitle = mDrawerTitle = getTitle();
@@ -134,14 +134,7 @@ public class ShowMapActivity extends Activity {
 		if (savedInstanceState == null) {
 			SelectItem(0);
 		}
-
-		try {
-			// Loading map
-			initilizeMap();
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		
 
 	}
 
@@ -206,8 +199,7 @@ public class ShowMapActivity extends Activity {
 			});
 
 			// Defining Listeners to the info window
-			googleMap
-					.setOnInfoWindowClickListener(new OnInfoWindowClickListener() {
+			googleMap.setOnInfoWindowClickListener(new OnInfoWindowClickListener() {
 
 						@Override
 						public void onInfoWindowClick(Marker arg0) {
@@ -224,6 +216,8 @@ public class ShowMapActivity extends Activity {
 
 			googleMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
 			googleMap.animateCamera(CameraUpdateFactory.zoomTo(15));
+			
+			
 			setGeoCoder(latitude, longitude);
 		}
 

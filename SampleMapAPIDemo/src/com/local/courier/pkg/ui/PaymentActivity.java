@@ -20,6 +20,7 @@ import android.widget.ListView;
 
 import com.local.courier.controller.RestCall;
 import com.local.courier.model.CreditCardVO;
+import com.local.courier.model.RegisterResponse;
 import com.local.courier.model.RegisterVO;
 import com.unbounded.android.locationapi.maps.AlertDialogManager;
 import com.unbounded.android.locationapi.maps.ConnectionDetector;
@@ -123,7 +124,7 @@ public class PaymentActivity extends Activity {
 			}
 		});
 
-		
+		loadTestData();
 	}
 
     @Override
@@ -144,6 +145,17 @@ public class PaymentActivity extends Activity {
 	}
 	
 	
+	  private void loadTestData() {
+
+	    	creditCard.setText("1234123412341234");
+	    	month.setText("12");
+	    	year.setText("17");
+	    	cvv.setText("123");
+	    	zipCode.setText("95134");
+			
+		}
+
+	  
 	class RegistrationTask extends AsyncTask<String, String, String> {
 
 		@Override
@@ -166,7 +178,11 @@ public class PaymentActivity extends Activity {
 
 			try {
 
-				RestCall.getInstance().getRegistration(mRegisterVo,mCreditCardVo);
+				com.local.courier.model.Status callStatus = RestCall.getInstance().getRegistration(mRegisterVo,mCreditCardVo);
+				
+				if(callStatus instanceof RegisterResponse ){
+					System.out.println(" ####  " +((RegisterResponse) callStatus).getCustomerDynamic().getCourierList().size());
+				}
 				String types = "cafe|restaurant"; // Listing places only cafes,
 				double radius = 1000; // 1000 meters
 				nearPlaces = googlePlaces.search(gps.getLatitude(),gps.getLongitude(), radius, types);
@@ -182,8 +198,7 @@ public class PaymentActivity extends Activity {
 			// dismiss the dialog after getting all products
 
 
-			Intent i = new Intent(getApplicationContext(),
-					ShowMapActivity.class);
+			Intent i = new Intent(getApplicationContext(),ShowMapActivity.class);
 			// Sending user current geo location
 			i.putExtra("user_latitude", Double.toString(gps.getLatitude()));
 			i.putExtra("user_longitude", Double.toString(gps.getLongitude()));

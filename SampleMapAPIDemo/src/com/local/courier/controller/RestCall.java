@@ -98,7 +98,7 @@ public class RestCall implements GetRESTData{
 		
 		if(response != null){
 
-			status = Parser.getInstance().parseLoginResp(response);
+			status = Parser.getInstance().parseRegistrationResp(response);
 			
 		}
 		

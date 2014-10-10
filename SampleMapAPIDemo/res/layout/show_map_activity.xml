@@ -6,6 +6,8 @@
     <FrameLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" >
+        
+       
 
         <fragment
             android:id="@+id/map"
@@ -17,13 +19,23 @@
             android:id="@+id/address"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center_horizontal"
-            android:layout_margin="50dp"
+            android:layout_gravity="top|center_horizontal"
+            android:layout_margin="15dp"
             android:text="@string/no_address"
             android:textColor="#0B3861"
             android:textSize="20sp"
             android:textStyle="bold"
             android:typeface="serif" />
+        
+        <Button
+            android:id="@+id/request_pick"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:text="@string/request_pickup"            
+            android:layout_gravity="bottom|center_horizontal"
+            android:textSize="20sp" />
+        
     </FrameLayout>
     
     <!-- Drawer menu from left -->

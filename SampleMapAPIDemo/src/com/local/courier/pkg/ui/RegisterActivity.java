@@ -63,9 +63,21 @@ public class RegisterActivity extends Activity {
 
 			}
 		});
+		
+		loadTestData();
 	}
 
-    @Override
+    private void loadTestData() {
+
+    	fName.setText("USER1");
+    	lName.setText("TEST");
+    	email.setText("user1@test.com");
+    	phone.setText("123-123-4567");
+    	password.setText("test");
+		
+	}
+
+	@Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
         case android.R.id.home:
