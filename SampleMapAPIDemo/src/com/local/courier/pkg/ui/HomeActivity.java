@@ -30,7 +30,7 @@ public class HomeActivity extends Activity {
 	
 	public void proceedRegistration(View v) {
 		
-		Intent loginIntent = new Intent(this, MainActivity.class);
+		Intent loginIntent = new Intent(this, RegisterActivity.class);
 		
 		startActivity(loginIntent);
 		

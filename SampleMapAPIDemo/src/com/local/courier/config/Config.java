@@ -19,6 +19,8 @@ public class Config {
   
 
 	public static final String SERVER_URL = "http://mars-marstech.rhcloud.com/api/";
+	
+	public static final String REGISTER_URL = SERVER_URL + "register";
 
 
 }

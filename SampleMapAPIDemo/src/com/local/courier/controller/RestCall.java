@@ -5,6 +5,7 @@ import org.json.JSONObject;
 
 import com.local.courier.config.Config;
 import com.local.courier.controller.RestClient.RequestMethod;
+import com.local.courier.model.RegisterVO;
 import com.local.courier.model.Status;
 import com.local.courier.parser.Parser;
 
@@ -74,26 +75,29 @@ public class RestCall implements GetRESTData{
 	}
 
 	@Override
-	public Status getRegistration(String fName, String lName, String phone, String email) {
+	public Status getRegistration(RegisterVO registerVo) {
 		Status status = null;
-		/*
+		
 		JSONObject json = new JSONObject();
 
 		try {
 			
-			json.put("BidId", bidId);
+			json.put("apiSignature", "12345");
+			
 			
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
 		String response = null;
-		response = getResponseNew(Config.GET_ACCEPTED_BID_DETAILS, json,sessionId);
+		response = getResponseNew(Config.REGISTER_URL, json,"");
 		
 		
 		if(response != null){
-			status = Parser.getInstance().parseAcceptedBidDtl(response);
+
+			status = Parser.getInstance().parseLoginResp(response);
+			
 		}
-		*/
+		
 		return status;
 	}
 }

@@ -52,7 +52,7 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.local.courier.pkg.ui.MainActivity"
+            android:name="com.local.courier.pkg.ui.RegisterActivity"
             android:label="Register"
             android:screenOrientation="portrait" >
             <meta-data
